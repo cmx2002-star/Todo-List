@@ -1,0 +1,266 @@
+/* 基础样式 */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #e6f7ff, #f0f7ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.container:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* 标签页样式 */
+.tab {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tab button {
+  flex: 1;
+  background-color: #f8fafc;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tab button.active {
+  background-color: white;
+  border-bottom: 2px solid #165DFF;
+  color: #165DFF;
+}
+
+.tabcontent {
+  padding: 1.5rem;
+  display: none;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+/* 头部样式 */
+header {
+  background-color: #165DFF;
+  color: white;
+  padding: 1.5rem;
+}
+
+header h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+header p {
+  color: #e6f7ff;
+  margin: 0;
+}
+
+/* 主内容样式 */
+main {
+  padding: 1.5rem;
+}
+
+/* 表单样式 */
+#todo-form {
+  margin-bottom: 1.5rem;
+}
+
+
+#todo-form div {
+  display: flex;
+  gap: 0.75rem;
+}
+
+#todo-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+#todo-input:focus {
+  border-color: #165DFF;
+  box-shadow: 0 0 0 3px rgba(22, 93, 255, 0.2);
+}
+
+#todo-form button {
+  background-color: #165DFF;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#todo-form button:hover {
+  background-color: #0b4bdb;
+  transform: scale(1.03);
+}
+
+/* 任务列表样式 */
+.task-list-container {
+  background: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+#todo-list,
+#history-todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#todo-list li,
+#history-todo-list li {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#todo-list li:hover,
+#history-todo-list li:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+#todo-list li div,
+#history-todo-list li div {
+  display: flex;
+  align-items: center;
+}
+
+#todo-list input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #165DFF;
+  cursor: pointer;
+}
+
+#todo-list .task-complete {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.delete-btn {
+  color: #9ca3af;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.delete-btn:hover {
+  color: #F87272;
+}
+
+/* 历史任务样式 */
+.history-date {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-left: 0.75rem;
+
+}
+
+/* 底部样式 */
+footer {
+  padding: 1rem;
+  background: #f3f4f6;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+#clear-all {
+  color: #1586d7;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+#clear-all:hover {
+  color: #F87272;
+}
+
+/* 空状态样式 */
+.empty-state {
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+  header {
+    padding: 1.25rem;
+  }
+
+  main {
+    padding: 1.25rem;
+  }
+
+  #todo-form div {
+    flex-direction: column;
+  }
+
+  #todo-input {
+    margin-bottom: 0.75rem;
+  }
+}

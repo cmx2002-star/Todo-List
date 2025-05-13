@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <!-- 标签页 -->
+    <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'CurrentTasks')">Current Tasks</button>
+      <button class="tablinks" onclick="openTab(event, 'HistoryTasks')">History Tasks</button>
+    </div>
+
+    <!-- 当前任务列表区域 -->
+    <div id="CurrentTasks" class="tabcontent active">
+      <header>
+        <h1>
+          <i class="fa fa-list mr-2"></i>
+          &nbsp Todo-list
+        </h1>
+        <p>
+          <i class="fa fa-calendar mr-2"></i>
+          &nbsp Today is
+          <span id="current-date"></span>
+          <span id="current-time"></span>
+        </p>
+      </header>
+      <main>
+        <form id="todo-form">
+          <div>
+            <input type="text" id="todo-input" placeholder="Add a new task..." required>
+            <button type="submit">
+              <i class="fa fa-plus mr-2"></i> Add Task
+            </button>
+          </div>
+        </form>
+        <div class="task-list-container">
+          <ul id="todo-list"></ul>
+          <div class="empty-state" id="empty-state-todo" style="display: none;">
+            Start adding tasks to your list!
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span id="task-count">0 tasks</span>
+        <button id="clear-all">
+          <i class="fa fa-trash mr-1"></i> Clear All
+        </button>
+      </footer>
+    </div>
+
+    <!-- 历史任务列表区域 -->
+    <div id="HistoryTasks" class="tabcontent">
+      <header>
+        <h1>
+          <i class="fa fa-history mr-2"></i>
+          &nbsp Completed Tasks
+        </h1>
+
+      </header>
+      <main>
+        <div class="task-list-container">
+          <ul id="history-todo-list"></ul>
+          <div class="empty-state" id="empty-state-history" style="display: none;">
+            No completed tasks .
+          </div>
+        </div>
+      </main>
+      <footer>
+        <button id="clear-history">
+          <i class="fa fa-trash mr-1"></i> Clear History
+        </button>
+      </footer>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
